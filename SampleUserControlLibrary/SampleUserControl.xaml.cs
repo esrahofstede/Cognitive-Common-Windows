@@ -83,19 +83,21 @@ namespace SampleUserControlLibrary
             }
         }
 
-        /// <summary>
-        /// Gets or sets the disclaimer
-        /// </summary>
-        public string Disclaimer
-        {
-            get { return _disclaimerTextBlock.Text; }
-            set { _disclaimerTextBlock.Text = value; }
-        }
-
         public string SubscriptionKey
         {
             get;
             set;
+        }
+
+        public string SubscriptionEndpoint
+        {
+            get;
+            set;
+        }
+
+        public void SetSubscriptionPageEndpoint(string endpoint)
+        {
+            _subscriptionPage.SetSubscriptionEndpoint(endpoint);
         }
 
         public SampleScenarios()
@@ -103,6 +105,7 @@ namespace SampleUserControlLibrary
             InitializeComponent();
             _subscriptionPage = new SubscriptionKeyPage(this);
             SubscriptionKey = _subscriptionPage.SubscriptionKey;
+            SubscriptionEndpoint = _subscriptionPage.SubscriptionEndpoint;
 
             SampleTitle = "Replace SampleNames with SampleScenarios.SampleTitle property";
 
